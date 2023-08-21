@@ -1,11 +1,14 @@
+import { swapiEndpoint } from '../config'
 import { Character, Film, PaginatedResult } from '../types'
 
-const swapiEndpoint = import.meta.env.SWAPI_BASE_URL
+export const fetchFilms = (): Promise<PaginatedResult<Film>> =>
+  fetch(`${swapiEndpoint}/films`).then((res) => res.json())
 
-if (!swapiEndpoint) {
-  throw new Error('Missing SWAPI endpoint configuration. Check your `.env` file.')
-}
+export const fetchFilmById = (filmId: string): Promise<Film> =>
+  fetch(`${swapiEndpoint}/films/${filmId}`).then((res) => res.json())
 
-export const getFilms = (): Promise<PaginatedResult<Film>> => fetch(`${swapiEndpoint}/films`).then((res) => res.json())
-export const getCharacters = (): Promise<PaginatedResult<Character>> =>
+export const fetchCharacters = (): Promise<PaginatedResult<Character>> =>
   fetch(`${swapiEndpoint}/people`).then((res) => res.json())
+
+export const fetchCharacterById = (characterId: string): Promise<Character> =>
+  fetch(`${swapiEndpoint}/people/${characterId}`).then((res) => res.json())

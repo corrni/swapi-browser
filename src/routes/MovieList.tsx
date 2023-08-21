@@ -1,18 +1,28 @@
 import React from 'react'
 import { useQuery } from '@tanstack/react-query'
+import { compact } from 'lodash'
 
-import { getFilms } from '../utils'
+import { fetchFilms } from '../utils'
+import { Link } from 'react-router-dom'
+import { getResourceIdFromUrl } from '../utils/utils'
 
 const MovieList: React.FC = () => {
-  const query = useQuery(['films'], getFilms)
+  const { data } = useQuery(['films'], fetchFilms)
 
-  if (query.isLoading) {
-    return <div>Loading...</div>
-  }
+  const films = compact(data?.results)
 
-  console.log(query.data)
-
-  return <div>List of movies</div>
+  return (
+    <div>
+      <h1>Movies</h1>
+      <ul>
+        {films.map((film) => (
+          <li key={film.episode_id}>
+            <Link to={`/movie/${getResourceIdFromUrl(film.url)}`}>{film.title}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 }
 
 export default MovieList

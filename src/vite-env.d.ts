@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  readonly SWAPI_BASE_URL: string
+  readonly VITE_SWAPI_BASE_URL: string
 }
 
 interface ImportMeta {
