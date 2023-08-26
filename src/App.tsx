@@ -4,6 +4,7 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { queryClient } from './config'
+import { MovieCharacterProvider } from './context'
 
 const MovieList = React.lazy(() => import('./routes/MovieList'))
 const MovieDetails = React.lazy(() => import('./routes/MovieDetails'))
@@ -15,12 +16,14 @@ export function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route index path="/" element={<MovieList />} />
-            <Route path="/movie/:id" element={<MovieDetails />} />
-            <Route path="/characters" element={<CharacterList />} />
-            <Route path="/character/:id" element={<CharacterDetails />} />
-          </Routes>
+          <MovieCharacterProvider>
+            <Routes>
+              <Route index path="/" element={<MovieList />} />
+              <Route path="/movie/:id" element={<MovieDetails />} />
+              <Route path="/characters" element={<CharacterList />} />
+              <Route path="/character/:id" element={<CharacterDetails />} />
+            </Routes>
+          </MovieCharacterProvider>
         </Suspense>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
