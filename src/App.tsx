@@ -6,10 +6,10 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { queryClient } from './config'
 import { MovieCharacterProvider } from './context'
 
-const MovieList = React.lazy(() => import('./routes/MovieList'))
-const MovieDetails = React.lazy(() => import('./routes/MovieDetails'))
-const CharacterList = React.lazy(() => import('./routes/CharacterList'))
-const CharacterDetails = React.lazy(() => import('./routes/CharacterDetails'))
+const MovieList = React.lazy(() => import('./pages/MovieList'))
+const MovieDetails = React.lazy(() => import('./pages/MovieDetails'))
+const CharacterList = React.lazy(() => import('./pages/CharacterList'))
+const CharacterDetails = React.lazy(() => import('./pages/CharacterDetails'))
 
 export function App() {
   return (
