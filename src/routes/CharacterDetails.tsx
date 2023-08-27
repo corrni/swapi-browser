@@ -1,7 +1,7 @@
 import React from 'react'
-import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 import { isEmpty } from 'lodash'
+import { useSuspenseQuery } from '@suspensive/react-query'
 
 import { fetchCharacterById } from '../utils'
 
@@ -9,12 +9,7 @@ const parseCharacterSpecies = (species: string[]) => species.join(', ')
 
 const CharacterDetails: React.FC = () => {
   const params = useParams<{ id: string }>()
-  const { data } = useQuery(['characters', params.id], () => fetchCharacterById(params.id!))
-
-  // KLUDGE: https://github.com/TanStack/query/issues/1297#issuecomment-730449036
-  if (!data) {
-    return null
-  }
+  const { data } = useSuspenseQuery(['characters', params.id], () => fetchCharacterById(params.id!))
 
   return (
     <div>

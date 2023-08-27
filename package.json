@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@suspensive/react": "^1.11.7",
+    "@suspensive/react-query": "^1.11.7",
     "@tanstack/react-query": "^4.32.6",
     "@tanstack/react-query-devtools": "^4.33.0",
     "@types/lodash": "^4.14.197",

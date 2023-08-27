@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@suspensive/react':
+    specifier: ^1.11.7
+    version: 1.11.7(react@18.2.0)
+  '@suspensive/react-query':
+    specifier: ^1.11.7
+    version: 1.11.7(@suspensive/react@1.11.7)(@tanstack/react-query@4.32.6)(react@18.2.0)
   '@tanstack/react-query':
     specifier: ^4.32.6
     version: 4.32.6(react-dom@18.2.0)(react@18.2.0)
@@ -599,6 +605,31 @@ packages:
   /@remix-run/router@1.8.0:
     resolution: {integrity: sha512-mrfKqIHnSZRyIzBcanNJmVQELTnX+qagEDlcKO90RgRBVOZGSGvZKeDihTRfWcqoDn5N/NkUcwWTccnpN18Tfg==}
     engines: {node: '>=14.0.0'}
+    dev: false
+
+  /@suspensive/react-query@1.11.7(@suspensive/react@1.11.7)(@tanstack/react-query@4.32.6)(react@18.2.0):
+    resolution: {integrity: sha512-BsfDZ2vuv9V8gq7uP1sAjZ260fC/LXTJWtVPjo3xe+I/Sx0Z+xsg6k2+9xluRgVXvKBd9hSFnEyZZRJPeWyKQA==}
+    peerDependencies:
+      '@suspensive/react': ^1.11.4-beta.0
+      '@tanstack/react-query': ^4
+      react: ^16.8 || ^17 || ^18
+    peerDependenciesMeta:
+      '@suspensive/react':
+        optional: true
+    dependencies:
+      '@suspensive/react': 1.11.7(react@18.2.0)
+      '@tanstack/react-query': 4.32.6(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+    dev: false
+    bundledDependencies:
+      - tsd
+
+  /@suspensive/react@1.11.7(react@18.2.0):
+    resolution: {integrity: sha512-5ejXIAH/bu3A2KjPW5zBrzxkRcO//YmQLy/1vIgMtMbio/CySrKV3AiXkYyVXdrj+LEb2+pTeg3esRGqvhe45A==}
+    peerDependencies:
+      react: ^16.8 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@tanstack/match-sorter-utils@8.8.4:

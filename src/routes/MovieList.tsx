@@ -1,15 +1,13 @@
 import React from 'react'
-import { useQuery } from '@tanstack/react-query'
-import { compact } from 'lodash'
+import { Link } from 'react-router-dom'
+import { useSuspenseQuery } from '@suspensive/react-query'
 
 import { fetchFilms } from '../utils'
-import { Link } from 'react-router-dom'
 import { getResourceIdFromUrl } from '../utils/utils'
 
 const MovieList: React.FC = () => {
-  const { data } = useQuery(['films'], fetchFilms)
-
-  const films = compact(data?.results)
+  const { data } = useSuspenseQuery(['films'], fetchFilms)
+  const films = data.results
 
   return (
     <div>
