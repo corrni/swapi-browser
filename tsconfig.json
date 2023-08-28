@@ -27,6 +27,7 @@
       "@/context": ["context/index.ts"],
       "@/hooks": ["hooks/index.ts"],
       "@/pages/*": ["pages/*"],
+      "@/styles": ["styles/index.ts"],
       "@/types": ["types/index.ts"],
       "@/utils": ["utils/index.ts"]
     }
