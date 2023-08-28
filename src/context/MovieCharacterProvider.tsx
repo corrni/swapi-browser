@@ -1,17 +1,16 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import { MovieCharacterContext } from './context'
-import { useStableHandler } from '../hooks'
 
 export const MovieCharacterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [characters, setCharacters] = useState<string[]>([])
 
-  const handleAddCharacters = useStableHandler((charactersToAdd: string[]) => {
+  const handleAddCharacters = useCallback((charactersToAdd: string[]) => {
     setCharacters((previousCharacters) => [
       ...previousCharacters,
-      ...charactersToAdd.filter((character) => !characters.includes(character)),
+      ...charactersToAdd.filter((character) => !previousCharacters.includes(character)),
     ])
-  })
+  }, [])
 
   return (
     <MovieCharacterContext.Provider value={{ characters, addCharacters: handleAddCharacters }}>
