@@ -1,9 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
+import { getPathFromResourceUrl } from '../../utils'
 import { useMovieCharacters } from '../../context'
 import { useFetchCharacters } from './useFetchCharacters'
-import { Link } from 'react-router-dom'
-import { getResourceIdFromUrl } from '../../utils'
 
 const CharacterList: React.FC = () => {
   const { characters: characterUrls } = useMovieCharacters()
@@ -11,11 +11,11 @@ const CharacterList: React.FC = () => {
 
   return (
     <div>
-      <h1>Character list</h1>
+      <h1>Characters</h1>
       <ul>
         {characters.map((character, index) => (
           <li key={index}>
-            <Link to={`/character/${getResourceIdFromUrl(character.url)}`}>{character.name}</Link>
+            <Link to={getPathFromResourceUrl('character', character.url)}>{character.name}</Link>
           </li>
         ))}
       </ul>
