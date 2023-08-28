@@ -20,6 +20,9 @@ dependencies:
   '@types/lodash':
     specifier: ^4.14.197
     version: 4.14.197
+  '@types/node':
+    specifier: ^20.5.7
+    version: 20.5.7
   babel-plugin-styled-components:
     specifier: ^2.1.4
     version: 2.1.4(@babel/core@7.22.10)(styled-components@6.0.7)
@@ -72,7 +75,7 @@ devDependencies:
     version: 5.0.2
   vite:
     specifier: ^4.4.5
-    version: 4.4.5
+    version: 4.4.5(@types/node@20.5.7)
 
 packages:
 
@@ -1805,6 +1808,9 @@ packages:
     resolution: {integrity: sha512-BMVOiWs0uNxHVlHBgzTIqJYmj+PgCo4euloGF+5m4okL3rEYzM2EEv78mw8zWSMM57dM7kVIgJ2QDvwHSoCI5g==}
     dev: false
 
+  /@types/node@20.5.7:
+    resolution: {integrity: sha512-dP7f3LdZIysZnmvP3ANJYTSwg+wLLl8p7RqniVlV7j+oXSXAbt9h0WIBFmJy5inWZoX9wZN6eXx+YXd9Rh3RBA==}
+
   /@types/prop-types@15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
@@ -1979,7 +1985,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.10)
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.10)
       react-refresh: 0.14.0
-      vite: 4.4.5
+      vite: 4.4.5(@types/node@20.5.7)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3250,7 +3256,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /vite@4.4.5:
+  /vite@4.4.5(@types/node@20.5.7):
     resolution: {integrity: sha512-4m5kEtAWHYr0O1Fu7rZp64CfO1PsRGZlD3TAB32UmQlpd7qg15VF7ROqGN5CyqN7HFuwr7ICNM2+fDWRqFEKaA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -3278,6 +3284,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 20.5.7
       esbuild: 0.18.20
       postcss: 8.4.28
       rollup: 3.28.0

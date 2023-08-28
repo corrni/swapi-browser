@@ -1,5 +1,5 @@
-import { swapiEndpoint } from '../config'
-import { Character, Film, PaginatedResult } from '../types'
+import { swapiEndpoint } from '@/config'
+import { Character, Film, PaginatedResult } from '@/types'
 
 export const fetchFilms = (): Promise<PaginatedResult<Film>> =>
   fetch(`${swapiEndpoint}/films`).then((res) => res.json())

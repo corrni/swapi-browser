@@ -1,8 +1,8 @@
 import { useQueries } from '@tanstack/react-query'
 import { compact } from 'lodash'
 
-import { useMemoizedArray } from '../../hooks'
-import { fetchCharacterById, getResourceIdFromUrl } from '../../utils'
+import { useMemoizedArray } from '@/hooks'
+import { fetchCharacterById, getResourceIdFromUrl } from '@/utils'
 
 export function useFetchCharacters(urls: string[]) {
   const queries = useQueries({

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSuspenseQuery } from '@suspensive/react-query'
 
-import { fetchFilms, getPathFromResourceUrl } from '../utils'
+import { fetchFilms, getPathFromResourceUrl } from '@/utils'
 
 const MovieList: React.FC = () => {
   const { data } = useSuspenseQuery(['films'], fetchFilms)

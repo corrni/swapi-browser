@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { getPathFromResourceUrl } from '../../utils'
-import { useMovieCharacters } from '../../context'
+import { getPathFromResourceUrl } from '@/utils'
+import { useMovieCharacters } from '@/context'
+
 import { useFetchCharacters } from './useFetchCharacters'
 
 const CharacterList: React.FC = () => {

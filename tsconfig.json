@@ -18,7 +18,18 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Module aliases */
+    "baseUrl": "src",
+    "paths": {
+      "@/config": ["config/index.ts"],
+      "@/context": ["context/index.ts"],
+      "@/hooks": ["hooks/index.ts"],
+      "@/pages/*": ["pages/*"],
+      "@/types": ["types/index.ts"],
+      "@/utils": ["utils/index.ts"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

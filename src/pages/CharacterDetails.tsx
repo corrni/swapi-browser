@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom'
 import { isEmpty } from 'lodash'
 import { useSuspenseQuery } from '@suspensive/react-query'
 
-import { fetchCharacterById } from '../utils'
+import { fetchCharacterById } from '@/utils'
 
+// TODO: move to component that fetches species info
 const parseCharacterSpecies = (species: string[]) => species.join(', ')
 
 const CharacterDetails: React.FC = () => {
