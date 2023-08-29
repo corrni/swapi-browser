@@ -8,7 +8,7 @@ import { fetchCharacterById } from '@/utils'
 // TODO: move to component that fetches species info
 const parseCharacterSpecies = (species: string[]) => species.join(', ')
 
-const CharacterDetails: React.FC = () => {
+const CharacterDetailsPage: React.FC = () => {
   const params = useParams<{ id: string }>()
   const { data } = useSuspenseQuery(['characters', params.id], () => fetchCharacterById(params.id!))
 
@@ -23,4 +23,4 @@ const CharacterDetails: React.FC = () => {
   )
 }
 
-export default CharacterDetails
+export default CharacterDetailsPage

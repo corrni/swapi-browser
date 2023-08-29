@@ -4,7 +4,7 @@ import { useSuspenseQuery } from '@suspensive/react-query'
 
 import { fetchFilms, getPathFromResourceUrl } from '@/utils'
 
-const MovieList: React.FC = () => {
+const MovieListPage: React.FC = () => {
   const { data } = useSuspenseQuery(['films'], fetchFilms)
   const films = data.results
 
@@ -22,4 +22,4 @@ const MovieList: React.FC = () => {
   )
 }
 
-export default MovieList
+export default MovieListPage

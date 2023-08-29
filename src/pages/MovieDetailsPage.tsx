@@ -5,7 +5,7 @@ import { useSuspenseQuery } from '@suspensive/react-query'
 import { useMovieCharacters } from '@/context'
 import { fetchFilmById } from '@/utils'
 
-const MovieDetails: React.FC = () => {
+const MovieDetailsPage: React.FC = () => {
   const params = useParams<{ id: string }>()
   const { data } = useSuspenseQuery(['films', params.id], () => fetchFilmById(params.id!))
   const { addCharacters } = useMovieCharacters()
@@ -26,4 +26,4 @@ const MovieDetails: React.FC = () => {
   )
 }
 
-export default MovieDetails
+export default MovieDetailsPage

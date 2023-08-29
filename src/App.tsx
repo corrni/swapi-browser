@@ -7,10 +7,10 @@ import { queryClient } from '@/config'
 import { MovieCharacterProvider } from '@/context'
 import { PageLayout } from '@/layout'
 
-const MovieList = React.lazy(() => import('@/pages/MovieList'))
-const MovieDetails = React.lazy(() => import('@/pages/MovieDetails'))
-const CharacterList = React.lazy(() => import('@/pages/CharacterList'))
-const CharacterDetails = React.lazy(() => import('@/pages/CharacterDetails'))
+const MovieListPage = React.lazy(() => import('@/pages/MovieListPage'))
+const MovieDetailsPage = React.lazy(() => import('@/pages/MovieDetailsPage'))
+const CharacterListPage = React.lazy(() => import('@/pages/CharacterListPage'))
+const CharacterDetailsPage = React.lazy(() => import('@/pages/CharacterDetailsPage'))
 
 export function App() {
   return (
@@ -19,10 +19,10 @@ export function App() {
         <MovieCharacterProvider>
           <Routes>
             <Route path="/" element={<PageLayout />}>
-              <Route index element={<MovieList />} />
-              <Route path="movie/:id" element={<MovieDetails />} />
-              <Route path="characters" element={<CharacterList />} />
-              <Route path="character/:id" element={<CharacterDetails />} />
+              <Route index element={<MovieListPage />} />
+              <Route path="movie/:id" element={<MovieDetailsPage />} />
+              <Route path="characters" element={<CharacterListPage />} />
+              <Route path="character/:id" element={<CharacterDetailsPage />} />
             </Route>
           </Routes>
         </MovieCharacterProvider>

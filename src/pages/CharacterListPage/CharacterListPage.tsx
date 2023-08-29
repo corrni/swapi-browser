@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom'
 
 import { getPathFromResourceUrl } from '@/utils'
 import { useMovieCharacters } from '@/context'
+import { useFetchCharacters } from '@/hooks'
 
-import { useFetchCharacters } from './useFetchCharacters'
-
-const CharacterList: React.FC = () => {
+const CharacterListPage: React.FC = () => {
   const { characters: characterUrls } = useMovieCharacters()
   const characters = useFetchCharacters(characterUrls)
 
@@ -24,4 +23,4 @@ const CharacterList: React.FC = () => {
   )
 }
 
-export default CharacterList
+export default CharacterListPage
