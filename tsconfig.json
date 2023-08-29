@@ -24,8 +24,10 @@
     "baseUrl": "src",
     "paths": {
       "@/config": ["config/index.ts"],
+      "@/components": ["components/index.ts"],
       "@/context": ["context/index.ts"],
       "@/hooks": ["hooks/index.ts"],
+      "@/layout": ["layout/index.ts"],
       "@/pages/*": ["pages/*"],
       "@/styles": ["styles/index.ts"],
       "@/types": ["types/index.ts"],

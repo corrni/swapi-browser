@@ -5,5 +5,9 @@ export const CSSVariables = createGlobalStyle`
     /* Typography */
     --body-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --body-font-size: 16px;
+
+    /* Layout */
+    --header-wrapper-sep-color: lightgray;
+    --header-wrapper-height: 5rem;
   }
 `
