@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useSuspenseQuery } from '@suspensive/react-query'
 
 import { useCharacterUrls } from '@/context'
@@ -14,9 +14,6 @@ const MovieDetailsPage: React.FC = () => {
   return (
     <div>
       <h1>Movie: {data.title}</h1>
-      <div>
-        <Link to="/characters">Characters</Link>
-      </div>
       <p>{data.opening_crawl}</p>
     </div>
   )

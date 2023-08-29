@@ -1,22 +1,13 @@
 import React, { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import {
-  PageLayoutContainer,
-  ContentOuterContainer,
-  NavSection,
-  HeaderOuterContainer,
-  CenteredPageSection,
-} from './styles'
+import { PageHeader } from './PageHeader'
+import { CenteredPageSection, ContentOuterContainer, PageLayoutContainer } from './styles'
 
 export const PageLayout: React.FC = () => {
   return (
     <PageLayoutContainer>
-      <HeaderOuterContainer>
-        <CenteredPageSection>
-          <NavSection>site navigation</NavSection>
-        </CenteredPageSection>
-      </HeaderOuterContainer>
+      <PageHeader />
       <ContentOuterContainer>
         <CenteredPageSection>
           <Suspense fallback={<div>Content loader...</div>}>
