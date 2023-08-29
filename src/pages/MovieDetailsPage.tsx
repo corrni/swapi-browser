@@ -2,18 +2,14 @@ import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useSuspenseQuery } from '@suspensive/react-query'
 
-import { useMovieCharacters } from '@/context'
+import { useCharacterUrls } from '@/context'
 import { fetchFilmById } from '@/utils'
+import { useMemoizedArray } from '@/hooks'
 
 const MovieDetailsPage: React.FC = () => {
   const params = useParams<{ id: string }>()
   const { data } = useSuspenseQuery(['films', params.id], () => fetchFilmById(params.id!))
-  const { addCharacters } = useMovieCharacters()
-
-  // FIXME: needs deep comparison because of `data.characters`
-  useEffect(() => {
-    addCharacters(data.characters)
-  }, [addCharacters, data.characters])
+  useAddCharacterUrlsToContext(data.characters)
 
   return (
     <div>
@@ -24,6 +20,15 @@ const MovieDetailsPage: React.FC = () => {
       <p>{data.opening_crawl}</p>
     </div>
   )
+}
+
+function useAddCharacterUrlsToContext(urls: string[]) {
+  const { addCharacterUrls } = useCharacterUrls()
+  const characterUrls = useMemoizedArray(urls)
+
+  useEffect(() => {
+    addCharacterUrls(characterUrls)
+  }, [addCharacterUrls, characterUrls])
 }
 
 export default MovieDetailsPage

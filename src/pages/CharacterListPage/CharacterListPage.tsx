@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { getPathFromResourceUrl } from '@/utils'
-import { useMovieCharacters } from '@/context'
+import { useCharacterUrls } from '@/context'
 import { useFetchCharacters } from '@/hooks'
 
 const CharacterListPage: React.FC = () => {
-  const { characters: characterUrls } = useMovieCharacters()
+  const { characterUrls } = useCharacterUrls()
   const characters = useFetchCharacters(characterUrls)
 
   return (

@@ -1,2 +1,2 @@
-export { MovieCharacterProvider } from './MovieCharacterProvider'
-export { useMovieCharacters } from './useMovieCharacters'
+export { CharacterUrlProvider } from './CharacterUrlProvider'
+export { useCharacterUrls } from './useCharacterUrls'

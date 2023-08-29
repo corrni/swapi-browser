@@ -1,8 +1,8 @@
 import { createContext } from 'react'
 
 interface ContextValue {
-  characters: string[]
-  addCharacters: React.Dispatch<string[]>
+  characterUrls: string[]
+  addCharacterUrls: React.Dispatch<string[]>
 }
 
-export const MovieCharacterContext = createContext<ContextValue | null>(null)
+export const CharacterUrlContext = createContext<ContextValue | null>(null)
