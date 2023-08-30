@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { ErrorBoundary } from '@suspensive/react'
 import { QueryErrorResetBoundary } from '@tanstack/react-query'
 
-import { CenteredPageSection, ErrorFallback, Loader as PageLoader, PageHeader } from '@/components'
+import { CenteredPageSection, ErrorFallback, PageLoader, PageHeader } from '@/components'
 
 import { ContentOuterContainer, PageLayoutContainer } from './styles'
 
