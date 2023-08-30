@@ -1,10 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
-import { getPathFromResourceUrl } from '@/utils'
 import { useCharacterUrls } from '@/context'
 import { useFetchCharacters } from '@/hooks'
-import { ContentWrapper, Grid, Heading } from '@/components'
+import { ContentWrapper, Grid, Heading, ImageCard } from '@/components'
 
 const CharacterListPage: React.FC = () => {
   const { characterUrls } = useCharacterUrls()
@@ -16,7 +13,7 @@ const CharacterListPage: React.FC = () => {
       <Grid>
         {characters.map((character, index) => (
           <Grid.Item key={index}>
-            <Link to={getPathFromResourceUrl('character', character.url)}>{character.name}</Link>
+            <ImageCard title={character.name} resourceType="character" resourceUrl={character.url} />
           </Grid.Item>
         ))}
       </Grid>

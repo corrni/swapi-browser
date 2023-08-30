@@ -1,9 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useSuspenseQuery } from '@suspensive/react-query'
 
-import { fetchFilms, getPathFromResourceUrl } from '@/utils'
-import { ContentWrapper, Heading, Grid } from '@/components'
+import { fetchFilms } from '@/utils'
+import { ContentWrapper, Heading, Grid, ImageCard } from '@/components'
 
 const MovieListPage: React.FC = () => {
   const { data } = useSuspenseQuery(['films'], fetchFilms)
@@ -15,7 +14,7 @@ const MovieListPage: React.FC = () => {
       <Grid>
         {films.map((film, index) => (
           <Grid.Item key={index}>
-            <Link to={getPathFromResourceUrl('movie', film.url)}>{film.title}</Link>
+            <ImageCard title={film.title} resourceType="movie" resourceUrl={film.url} />
           </Grid.Item>
         ))}
       </Grid>

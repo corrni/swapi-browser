@@ -1,5 +1,6 @@
 export * from './ErrorFallback'
 export * from './Grid'
+export * from './ImageCard'
 export * from './Loader'
 export * from './Logo'
 export * from './NavigationMenu'
