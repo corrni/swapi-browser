@@ -1,3 +1,4 @@
+export * from './ErrorFallback'
 export * from './Grid'
 export * from './Loader'
 export * from './Logo'

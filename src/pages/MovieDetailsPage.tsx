@@ -12,6 +12,15 @@ const MovieDetailsPage: React.FC = () => {
   const { data } = useSuspenseQuery(['films', params.id], () => fetchFilmById(params.id!))
   useAddCharacterUrlsToContext(data.characters)
 
+  // @ts-expect-error TODO: Add 404 response to fetch helper
+  if (data.detail === 'Not found') {
+    return (
+      <ContentWrapper>
+        <Heading>404: The movie was not found</Heading>
+      </ContentWrapper>
+    )
+  }
+
   return (
     <ContentWrapper>
       <Heading>Movies / {data.title}</Heading>
@@ -20,7 +29,7 @@ const MovieDetailsPage: React.FC = () => {
   )
 }
 
-function useAddCharacterUrlsToContext(urls: string[]) {
+function useAddCharacterUrlsToContext(urls: string[] = []) {
   const { addCharacterUrls } = useCharacterUrls()
   const characterUrls = useMemoizedArray(urls)
 
