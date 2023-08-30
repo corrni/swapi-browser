@@ -1,3 +1,4 @@
+export * from './DetailSection'
 export * from './ErrorFallback'
 export * from './Grid'
 export * from './ImageCard'

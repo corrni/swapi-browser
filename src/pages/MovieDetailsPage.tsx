@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom'
 import { useSuspenseQuery } from '@suspensive/react-query'
 
 import { useCharacterUrls } from '@/context'
-import { fetchFilmById } from '@/utils'
+import { fetchFilmById, getMovieImageSrcByEpisode } from '@/utils'
 import { useMemoizedArray } from '@/hooks'
-import { ContentWrapper, Heading } from '@/components'
+import { ContentWrapper, Heading, DetailSection } from '@/components'
 
 const MovieDetailsPage: React.FC = () => {
   const params = useParams<{ id: string }>()
@@ -23,8 +23,18 @@ const MovieDetailsPage: React.FC = () => {
 
   return (
     <ContentWrapper>
-      <Heading>Movies / {data.title}</Heading>
-      <p>{data.opening_crawl}</p>
+      <DetailSection>
+        <DetailSection.ImageAside src={getMovieImageSrcByEpisode(data.url)} />
+        <DetailSection.Content>
+          <Heading>{data.title}</Heading>
+          <DetailSection.Text intro="Date Created:">{data.release_date}</DetailSection.Text>
+          <DetailSection.Text intro="Director:">{data.director}</DetailSection.Text>
+          <DetailSection.Text intro="Producer(s):">{data.producer}</DetailSection.Text>
+          <DetailSection.Text intro="Opening Crawl:" breakOnIntro>
+            {data.opening_crawl}
+          </DetailSection.Text>
+        </DetailSection.Content>
+      </DetailSection>
     </ContentWrapper>
   )
 }

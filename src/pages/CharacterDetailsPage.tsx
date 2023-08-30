@@ -1,13 +1,9 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { isEmpty } from 'lodash'
 import { useSuspenseQuery } from '@suspensive/react-query'
 
-import { fetchCharacterById } from '@/utils'
-import { ContentWrapper, Heading } from '@/components'
-
-// TODO: move to component that fetches species info
-const parseCharacterSpecies = (species: string[]) => species.join(', ')
+import { fetchCharacterById, getCharacterImageSrcById } from '@/utils'
+import { ContentWrapper, Heading, DetailSection } from '@/components'
 
 const CharacterDetailsPage: React.FC = () => {
   const params = useParams<{ id: string }>()
@@ -24,11 +20,20 @@ const CharacterDetailsPage: React.FC = () => {
 
   return (
     <ContentWrapper>
-      <Heading>Characters / {data.name}</Heading>
-      {!isEmpty(data.species) && <div>{parseCharacterSpecies(data.species)}</div>}
-      <p>Gender: {data.gender}</p>
-      <p>Homeworld: {data.homeworld}</p>
-      <p>Birth year: {data.birth_year}</p>
+      <DetailSection>
+        <DetailSection.ImageAside src={getCharacterImageSrcById(data.url)} />
+        <DetailSection.Content>
+          <Heading>Characters / {data.name}</Heading>
+          {/* TODO: Add character's species */}
+          <DetailSection.Text intro="Birth Year:">{data.birth_year}</DetailSection.Text>
+          <DetailSection.Text intro="Height:">{data.height}</DetailSection.Text>
+          <DetailSection.Text intro="Mass:">{data.mass}</DetailSection.Text>
+          <DetailSection.Text intro="Gender:">{data.gender}</DetailSection.Text>
+          <DetailSection.Text intro="Hair Color:">{data.hair_color}</DetailSection.Text>
+          <DetailSection.Text intro="Skin Color:">{data.skin_color}</DetailSection.Text>
+          {/* TODO: Add character's homeworld */}
+        </DetailSection.Content>
+      </DetailSection>
     </ContentWrapper>
   )
 }
