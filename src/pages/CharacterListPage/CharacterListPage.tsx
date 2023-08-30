@@ -1,10 +1,10 @@
 import React from 'react'
-import { useCharacterUrls } from '@/context'
-import { useFetchCharacters } from '@/hooks'
+
+import { useFetchCharacters, usePaginatedCharacterUrls } from '@/hooks'
 import { ContentWrapper, Grid, Heading, ImageCard } from '@/components'
 
 const CharacterListPage: React.FC = () => {
-  const { characterUrls } = useCharacterUrls()
+  const { characterUrls, hasMore, fetchMore } = usePaginatedCharacterUrls()
   const characters = useFetchCharacters(characterUrls)
 
   return (
@@ -17,6 +17,9 @@ const CharacterListPage: React.FC = () => {
           </Grid.Item>
         ))}
       </Grid>
+      <button disabled={!hasMore} onClick={fetchMore}>
+        Fetch more
+      </button>
     </ContentWrapper>
   )
 }
