@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { CenteredPageSection } from '../styles'
+import { CenteredPageSection } from '../sharedStyles'
 import { NavSection, HeaderOuterContainer } from './styles'
 import { StarWarsLogo } from '../Logo'
 import { NavigationMenu } from '../NavigationMenu'
