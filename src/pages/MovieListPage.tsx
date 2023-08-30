@@ -10,7 +10,7 @@ const MovieListPage: React.FC = () => {
 
   return (
     <ContentWrapper>
-      <Heading>Movies</Heading>
+      <Heading>List of Movies</Heading>
       <Grid>
         {films.map((film, index) => (
           <Grid.Item key={index}>
