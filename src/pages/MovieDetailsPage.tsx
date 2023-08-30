@@ -26,7 +26,7 @@ const MovieDetailsPage: React.FC = () => {
       <DetailSection>
         <DetailSection.ImageAside src={getMovieImageSrcByEpisode(data.url)} />
         <DetailSection.Content>
-          <Heading>{data.title}</Heading>
+          <DetailSection.Heading>{data.title}</DetailSection.Heading>
           <DetailSection.Text intro="Date Created:">{data.release_date}</DetailSection.Text>
           <DetailSection.Text intro="Director:">{data.director}</DetailSection.Text>
           <DetailSection.Text intro="Producer(s):">{data.producer}</DetailSection.Text>

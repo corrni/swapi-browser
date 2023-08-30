@@ -23,7 +23,7 @@ const CharacterDetailsPage: React.FC = () => {
       <DetailSection>
         <DetailSection.ImageAside src={getCharacterImageSrcById(data.url)} />
         <DetailSection.Content>
-          <Heading>Characters / {data.name}</Heading>
+          <DetailSection.Heading>Characters / {data.name}</DetailSection.Heading>
           {/* TODO: Add character's species */}
           <DetailSection.Text intro="Birth Year:">{data.birth_year}</DetailSection.Text>
           <DetailSection.Text intro="Height:">{data.height}</DetailSection.Text>

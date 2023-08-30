@@ -1,6 +1,7 @@
 import { styled } from 'styled-components'
 
 import { TextSection } from './TextSection'
+import { Heading } from '../typographyStyles'
 
 export const DetailCardWrapper = styled.div`
   display: flex;
@@ -10,6 +11,10 @@ export const DetailCardWrapper = styled.div`
   @media screen and (max-width: 780px) {
     flex-wrap: wrap;
   }
+`
+
+export const DetailCardHeading = styled(Heading)`
+  padding-bottom: 0.5rem;
 `
 
 export const DetailCardImageAside = styled.img`
@@ -28,7 +33,8 @@ export const DetailCardContent = styled.div`
 `
 
 export const DetailSection = Object.assign(DetailCardWrapper, {
-  ImageAside: DetailCardImageAside,
   Content: DetailCardContent,
+  Heading: DetailCardHeading,
+  ImageAside: DetailCardImageAside,
   Text: TextSection,
 })
