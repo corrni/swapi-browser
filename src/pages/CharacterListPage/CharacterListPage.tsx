@@ -1,10 +1,9 @@
 import React from 'react'
 
 import { usePaginatedCharacterUrls } from '@/hooks'
-import { ContentWrapper, Grid, Heading } from '@/components'
+import { ContentWrapper, Grid, Heading, LinkButton } from '@/components'
 
 import { CharacterCard } from './CharacterCard'
-import { LinkButton } from './styles'
 
 const CharacterListPage: React.FC = () => {
   const { characterUrls, hasMore, fetchMore } = usePaginatedCharacterUrls()
