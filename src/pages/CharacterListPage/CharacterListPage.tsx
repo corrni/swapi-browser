@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { usePaginatedCharacterUrls } from '@/hooks'
 import { ContentWrapper, Grid, Heading, LinkButton } from '@/components'
@@ -7,6 +8,17 @@ import { CharacterCard } from './CharacterCard'
 
 const CharacterListPage: React.FC = () => {
   const { characterUrls, hasMore, fetchMore } = usePaginatedCharacterUrls()
+
+  if (!characterUrls.length) {
+    return (
+      <ContentWrapper>
+        <Heading>No characters are available yet.</Heading>
+        <p>
+          This page only list characters from <Link to="/">any movies</Link> you have visted.
+        </p>
+      </ContentWrapper>
+    )
+  }
 
   return (
     <ContentWrapper>

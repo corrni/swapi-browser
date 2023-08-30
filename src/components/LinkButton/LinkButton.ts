@@ -14,4 +14,9 @@ export const LinkButton = styled.button`
   margin: 2rem auto;
   display: block;
   cursor: pointer;
+
+  &:disabled {
+    color: var(--color-slate-500);
+    cursor: default;
+  }
 `
