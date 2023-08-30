@@ -3,12 +3,13 @@ import { createGlobalStyle } from 'styled-components'
 export const CSSVariables = createGlobalStyle`
   :root {
     /* Colors */
-    --color-black: #000;
+    --color-slate-50: #f8fafc;
     --color-slate-100: #f1f5f9;
     --color-slate-200: #e2e8f0;
     --color-slate-300: #cbd5e1;
     --color-slate-500: #64748b;
     --color-slate-700: #334155;
+    --color-black: #000;
 
 
     /* Typography */

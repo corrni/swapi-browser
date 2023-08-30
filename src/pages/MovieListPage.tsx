@@ -3,22 +3,23 @@ import { Link } from 'react-router-dom'
 import { useSuspenseQuery } from '@suspensive/react-query'
 
 import { fetchFilms, getPathFromResourceUrl } from '@/utils'
+import { ContentWrapper, Heading, Grid } from '@/components'
 
 const MovieListPage: React.FC = () => {
   const { data } = useSuspenseQuery(['films'], fetchFilms)
   const films = data.results
 
   return (
-    <div>
-      <h1>Movies</h1>
-      <ul>
+    <ContentWrapper>
+      <Heading>Movies</Heading>
+      <Grid>
         {films.map((film, index) => (
-          <li key={index}>
+          <Grid.Item key={index}>
             <Link to={getPathFromResourceUrl('movie', film.url)}>{film.title}</Link>
-          </li>
+          </Grid.Item>
         ))}
-      </ul>
-    </div>
+      </Grid>
+    </ContentWrapper>
   )
 }
 

@@ -5,6 +5,7 @@ import { useSuspenseQuery } from '@suspensive/react-query'
 import { useCharacterUrls } from '@/context'
 import { fetchFilmById } from '@/utils'
 import { useMemoizedArray } from '@/hooks'
+import { ContentWrapper, Heading } from '@/components'
 
 const MovieDetailsPage: React.FC = () => {
   const params = useParams<{ id: string }>()
@@ -12,10 +13,10 @@ const MovieDetailsPage: React.FC = () => {
   useAddCharacterUrlsToContext(data.characters)
 
   return (
-    <div>
-      <h1>Movie: {data.title}</h1>
+    <ContentWrapper>
+      <Heading>Movies / {data.title}</Heading>
       <p>{data.opening_crawl}</p>
-    </div>
+    </ContentWrapper>
   )
 }
 

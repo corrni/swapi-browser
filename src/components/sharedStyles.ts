@@ -6,3 +6,5 @@ export const CenteredPageSection = styled.section`
   width: 100%;
   max-width: 80rem;
 `
+
+export const ContentWrapper = styled.section``
