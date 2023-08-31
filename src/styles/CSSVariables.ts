@@ -28,5 +28,9 @@ export const CSSVariables = createGlobalStyle`
     --header-logo-color: var(--color-black);
     --header-logo-desktop-size: 4rem;
     --header-logo-mobile-size: 3rem;
+
+    /* Layout > Page listing grid */
+    --grid-listitem-min-height: 250px;
+    --grid-listitem-min-width: 350px;
   }
 `

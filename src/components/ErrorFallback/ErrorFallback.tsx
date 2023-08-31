@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { CenteredPageSection, Heading, LinkButton } from '@/components'
+import { Button } from '../Button'
+import { CenteredPageSection } from '../sharedStyles'
+import { Heading } from '../typographyStyles'
 
 interface ErrorFallbackProps {
   reset: () => void
@@ -10,7 +12,7 @@ export const ErrorFallback: React.FC<ErrorFallbackProps> = ({ reset }) => {
   return (
     <CenteredPageSection>
       <Heading>An error occurred.</Heading>
-      <LinkButton onClick={reset}>Try again</LinkButton>
+      <Button onClick={reset}>Try again</Button>
     </CenteredPageSection>
   )
 }

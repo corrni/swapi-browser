@@ -1,7 +1,7 @@
 import { styled } from 'styled-components'
 
-import { TextSection } from './TextSection'
 import { Heading } from '../typographyStyles'
+import { TextSection } from './TextSection'
 
 export const DetailCardWrapper = styled.div`
   display: flex;

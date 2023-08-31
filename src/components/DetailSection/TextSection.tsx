@@ -7,16 +7,16 @@ const DetailTextIntro = styled.strong<{ breakOnIntro: boolean }>`
 `
 
 export const DetailTextWrapper = styled.p`
-  line-height: 1.2rem;
+  line-height: 1.2;
 `
 
-interface ParagraphProps {
+interface TextSectionProps {
   intro?: string
   breakOnIntro?: boolean
   children: React.ReactNode
 }
 
-export const TextSection: React.FC<ParagraphProps> = ({ intro = null, breakOnIntro = false, children }) => {
+export const TextSection: React.FC<TextSectionProps> = ({ intro = null, breakOnIntro = false, children }) => {
   return (
     <DetailTextWrapper>
       {intro && <DetailTextIntro breakOnIntro={breakOnIntro}>{intro}</DetailTextIntro>}

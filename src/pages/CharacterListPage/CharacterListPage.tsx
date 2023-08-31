@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { usePaginatedCharacterUrls } from '@/hooks'
-import { ContentWrapper, Grid, Heading, LinkButton } from '@/components'
+import { ContentWrapper, Grid, Heading, Button } from '@/components'
 
 import { CharacterCard } from './CharacterCard'
 
@@ -30,9 +30,9 @@ const CharacterListPage: React.FC = () => {
           </Grid.Item>
         ))}
       </Grid>
-      <LinkButton disabled={!hasMore} onClick={fetchMore}>
+      <Button disabled={!hasMore} onClick={fetchMore}>
         Fetch more characters
-      </LinkButton>
+      </Button>
     </ContentWrapper>
   )
 }

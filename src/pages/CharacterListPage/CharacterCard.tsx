@@ -19,5 +19,6 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({ characterUrl }) =>
 function CharacterCardComponent({ characterUrl }: CharacterCardProps) {
   const characterId = getResourceIdFromUrl(characterUrl)!
   const { data } = useSuspenseQuery(['character', characterId], () => fetchCharacterById(characterId))
+
   return <ImageCard title={data.name} resourceType="character" resourceUrl={data.url} />
 }

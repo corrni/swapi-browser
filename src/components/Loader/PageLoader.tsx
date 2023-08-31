@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+
 import { CenteredPageSection } from '../sharedStyles'
 import { Loader } from './Loader'
 

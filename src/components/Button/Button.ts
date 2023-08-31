@@ -1,6 +1,6 @@
 import { styled } from 'styled-components'
 
-export const LinkButton = styled.button`
+export const Button = styled.button`
   border: 0;
   border-radius: 0.25rem;
   color: var(--color-slate-600);
