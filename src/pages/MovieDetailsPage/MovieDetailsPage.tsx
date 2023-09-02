@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useSuspenseQuery } from '@suspensive/react-query'
 
-import { useCharacterUrls } from '@/context'
 import { fetchFilmById, getMovieImageSrcByEpisode } from '@/utils'
-import { useMemoizedArray } from '@/hooks'
 import { ContentWrapper, Heading, DetailSection } from '@/components'
+import { useAddCharacterUrlsToContext } from '@/hooks'
 
 const MovieDetailsPage: React.FC = () => {
   const params = useParams<{ id: string }>()
   const { data } = useSuspenseQuery(['films', params.id], () => fetchFilmById(params.id!))
-  useAddCharacterUrlsToContext(data.characters)
+  const notFound = 'detail' in data
 
-  // @ts-expect-error TODO: Add 404 response to fetch helper
-  if (data.detail === 'Not found') {
+  useAddCharacterUrlsToContext(notFound ? undefined : data.characters)
+
+  if (notFound) {
     return (
       <ContentWrapper>
         <Heading>404: The movie was not found</Heading>
@@ -37,15 +37,6 @@ const MovieDetailsPage: React.FC = () => {
       </DetailSection>
     </ContentWrapper>
   )
-}
-
-function useAddCharacterUrlsToContext(urls: string[] = []) {
-  const { addCharacterUrls } = useCharacterUrls()
-  const characterUrls = useMemoizedArray(urls)
-
-  useEffect(() => {
-    addCharacterUrls(characterUrls)
-  }, [addCharacterUrls, characterUrls])
 }
 
 export default MovieDetailsPage

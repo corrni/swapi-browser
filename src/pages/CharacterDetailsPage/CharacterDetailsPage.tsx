@@ -9,8 +9,7 @@ const CharacterDetailsPage: React.FC = () => {
   const params = useParams<{ id: string }>()
   const { data } = useSuspenseQuery(['characters', params.id], () => fetchCharacterById(params.id!))
 
-  // @ts-expect-error TODO: Add 404 response to fetch helper
-  if (data.detail === 'Not found') {
+  if ('detail' in data) {
     return (
       <ContentWrapper>
         <Heading>404: The character was not found</Heading>
