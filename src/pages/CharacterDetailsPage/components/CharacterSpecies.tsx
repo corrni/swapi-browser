@@ -10,7 +10,7 @@ interface CharacterSpeciesProps {
 
 export const CharacterSpecies: React.FC<CharacterSpeciesProps> = ({ urls }) => {
   if (!urls.length) {
-    return 'n/a'
+    return <React.Fragment>n/a</React.Fragment>
   }
 
   return (
@@ -32,9 +32,11 @@ function SpeciesDetailComponent({ urls }: CharacterSpeciesProps) {
     }),
   })
 
-  return queries
+  const characterSpecies = queries
     .map((query) => query.data)
     .filter(isDefinedPayload)
     .map(({ name }) => name)
     .join(', ')
+
+  return <React.Fragment>{characterSpecies}</React.Fragment>
 }

@@ -20,5 +20,9 @@ function HomeworldDetailComponent({ url }: CharacterHomeworldProps) {
   const planetId = getResourceIdFromUrl(url)!
   const { data } = useSuspenseQuery(['planet', planetId], () => fetchPlanetById(planetId))
 
-  return isDefinedPayload(data) ? data.name : 'n/a'
+  if (!isDefinedPayload(data)) {
+    return <React.Fragment>n/a</React.Fragment>
+  }
+
+  return <React.Fragment>{data.name}</React.Fragment>
 }
