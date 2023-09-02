@@ -1,17 +1,14 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useSuspenseQuery } from '@suspensive/react-query'
 
-import { fetchFilmById, getMovieImageSrcByEpisode } from '@/utils'
+import { getMovieImageSrcByUrl } from '@/utils'
 import { ContentWrapper, Heading, DetailSection } from '@/components'
-import { useAddCharacterUrlsToContext } from '@/hooks'
+import { useAddCharacterUrlsToContext, useFetchMovie } from '@/hooks'
 
 const MovieDetailsPage: React.FC = () => {
   const params = useParams<{ id: string }>()
-  const { data } = useSuspenseQuery(['films', params.id], () => fetchFilmById(params.id!))
-  const notFound = 'detail' in data
-
-  useAddCharacterUrlsToContext(notFound ? undefined : data.characters)
+  const { notFound, data } = useFetchMovie(params.id)
+  useAddCharacterUrlsToContext(notFound ? [] : data.characters)
 
   if (notFound) {
     return (
@@ -24,7 +21,7 @@ const MovieDetailsPage: React.FC = () => {
   return (
     <ContentWrapper>
       <DetailSection>
-        <DetailSection.ImageAside src={getMovieImageSrcByEpisode(data.url)} />
+        <DetailSection.ImageAside src={getMovieImageSrcByUrl(data.url)} />
         <DetailSection.Content>
           <DetailSection.Heading>{data.title}</DetailSection.Heading>
           <DetailSection.Text intro="Date Created:">{data.release_date}</DetailSection.Text>

@@ -30,7 +30,7 @@ export const CSSVariables = createGlobalStyle`
     --header-logo-mobile-size: 3rem;
 
     /* Layout > Page listing grid */
-    --grid-listitem-min-height: 250px;
-    --grid-listitem-min-width: 350px;
+    --grid-listitem-min-height: 350px;
+    --grid-listitem-min-width: 250px;
   }
 `

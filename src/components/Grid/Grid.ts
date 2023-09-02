@@ -9,7 +9,7 @@ const GridContainer = styled.ul`
 const GridItem = styled.ul`
   background-color: var(--color-slate-100);
   padding: 0.75rem;
-  min-height: var(--grid-listitem-min-width);
+  min-height: var(--grid-listitem-min-height);
 `
 
 export const Grid = Object.assign(GridContainer, {

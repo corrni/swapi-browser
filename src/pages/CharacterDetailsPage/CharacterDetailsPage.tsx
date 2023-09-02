@@ -1,17 +1,17 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useSuspenseQuery } from '@suspensive/react-query'
 
-import { fetchCharacterById, getCharacterImageSrcById } from '@/utils'
+import { getCharacterImageSrcByUrl } from '@/utils'
 import { ContentWrapper, Heading, DetailSection } from '@/components'
+import { useFetchCharacter } from '@/hooks'
 
 import { CharacterSpecies, CharacterHomeworld } from './components'
 
 const CharacterDetailsPage: React.FC = () => {
   const params = useParams()
-  const { data } = useSuspenseQuery(['characters', params.id], () => fetchCharacterById(params.id!))
+  const { notFound, data } = useFetchCharacter(params.id)
 
-  if ('detail' in data) {
+  if (notFound) {
     return (
       <ContentWrapper>
         <Heading>404: The character was not found</Heading>
@@ -22,7 +22,7 @@ const CharacterDetailsPage: React.FC = () => {
   return (
     <ContentWrapper>
       <DetailSection>
-        <DetailSection.ImageAside src={getCharacterImageSrcById(data.url)} />
+        <DetailSection.ImageAside src={getCharacterImageSrcByUrl(data.url)} />
         <DetailSection.Content>
           <DetailSection.Heading>Characters / {data.name}</DetailSection.Heading>
           <DetailSection.Text intro="Species:">

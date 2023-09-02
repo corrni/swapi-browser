@@ -4,6 +4,7 @@ import { CharacterUrlContext } from './context'
 
 export const CharacterUrlProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [characterUrls, setCharacterUrls] = useState<string[]>([])
+  const [currentPage, setCurrentPage] = useState(1)
 
   const handleAddCharacterUrls = useCallback((nextUrls: string[]) => {
     setCharacterUrls((previousUrls) => [
@@ -13,7 +14,14 @@ export const CharacterUrlProvider: React.FC<{ children: React.ReactNode }> = ({ 
   }, [])
 
   return (
-    <CharacterUrlContext.Provider value={{ characterUrls, addCharacterUrls: handleAddCharacterUrls }}>
+    <CharacterUrlContext.Provider
+      value={{
+        addCharacterUrls: handleAddCharacterUrls,
+        characterUrls,
+        currentPage,
+        setCurrentPage,
+      }}
+    >
       {children}
     </CharacterUrlContext.Provider>
   )

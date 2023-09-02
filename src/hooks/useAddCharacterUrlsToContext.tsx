@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+
 import { useCharacterUrls } from '@/context'
 import { useMemoizedArray } from '@/hooks'
 

@@ -2,8 +2,8 @@ import { visualGuideBaseURL } from '@/config'
 
 import { getResourceIdFromUrl } from './utils'
 
-export const getMovieImageSrcByEpisode = (episodeUrl: string) =>
+export const getMovieImageSrcByUrl = (episodeUrl: string) =>
   `${visualGuideBaseURL}/films/${getResourceIdFromUrl(episodeUrl)}.jpg`
 
-export const getCharacterImageSrcById = (characterUrl: string) =>
+export const getCharacterImageSrcByUrl = (characterUrl: string) =>
   `${visualGuideBaseURL}/characters/${getResourceIdFromUrl(characterUrl)}.jpg`

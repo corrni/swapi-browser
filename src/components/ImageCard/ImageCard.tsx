@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ResourceType } from '@/types'
-import { getCharacterImageSrcById, getMovieImageSrcByEpisode, getPathFromResourceUrl } from '@/utils'
+import { getCharacterImageSrcByUrl, getMovieImageSrcByUrl, getPathFromResourceUrl } from '@/utils'
 
 import { CardImage, CardTitle, CardWrapper, CardLink } from './styles'
 
@@ -13,7 +13,7 @@ interface ImageCardProps {
 
 export const ImageCard: React.FC<ImageCardProps> = ({ resourceType, resourceUrl, title }) => {
   const isCharacter = resourceType === 'character'
-  const imageSrc = isCharacter ? getCharacterImageSrcById(resourceUrl) : getMovieImageSrcByEpisode(resourceUrl)
+  const imageSrc = isCharacter ? getCharacterImageSrcByUrl(resourceUrl) : getMovieImageSrcByUrl(resourceUrl)
   const altText = isCharacter ? `Character image for: ${title}` : `Movie cover for: ${title}`
 
   return (
