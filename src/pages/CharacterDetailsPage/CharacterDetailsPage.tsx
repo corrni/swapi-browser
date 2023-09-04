@@ -8,7 +8,7 @@ import { useFetchCharacter } from '@/hooks'
 import { CharacterSpecies, CharacterHomeworld } from './components'
 
 const CharacterDetailsPage: React.FC = () => {
-  const params = useParams()
+  const params = useParams<{ id: string }>()
   const { notFound, data } = useFetchCharacter(params.id)
 
   if (notFound) {

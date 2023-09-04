@@ -23,6 +23,7 @@ export const CSSVariables = createGlobalStyle`
     /* Layout > Header */
     --header-wrapper-sep-color: var(--color-slate-300);
     --header-wrapper-height: 5rem;
+    --header-drop-shadow-color: color-mix(in srgb, var(--color-slate-300) 40%, transparent);
 
     /* Layout > SW logo */
     --header-logo-color: var(--color-black);

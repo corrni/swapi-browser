@@ -6,9 +6,11 @@ export const PageLayoutContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   height: 100vh;
+  position: relative;
 `
 
 export const ContentOuterContainer = styled.main`
   width: 100%;
   height: calc(100vh - var(--header-wrapper-height));
+  margin-top: var(--header-wrapper-height);
 `
