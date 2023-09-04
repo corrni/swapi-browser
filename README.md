@@ -47,27 +47,27 @@ This application is written in React and TypeScript, as well as:
 
 ### Approach and key decisions
 
-I started out with a few assumptions: for one, my solution did not need all the
-frills (pixel-perfect designs, SEO support, highly optimized bundles, etc.) of
-a production-grade application; and while my creativity would be assessed, it
-didn't seem likely that I would be expected to rise to the level of professional
-graphic or UX designer.
+I started out with a couple of  assumptions: for one, my solution did not need
+all the frills (pixel-perfect designs, SEO support, highly optimized bundles,
+etc.) of a production-grade application; and while my creativity would be
+assessed, it didn't seem likely that I would be expected to rise to the level of
+professional graphic or UX designer.
 
 So I went with a minimalist UI, and chose to focus on *beautiful code* for the
 most part (or my take on what that means in the React context, at any rate):
-- Decent DX (e.g. descriptive errors, including devtools). The one exception is
+- Good DX (e.g. descriptive errors, including dev tools). One exception is
   that I did not include tooling to generate types for the API (see notes).
 - A relatively shallow structure to avoid nested directories and namespaces as much
   as possible (e.g. except where necessary for consistence).
 - Avoiding cross-module imports, and using module aliases (e.g. `@/hooks`) to
-  make it easier to alter or move them later on.
+  make it easier to alter or move modules later on.
 - Self-documenting code, only using comments where I felt that it wouldn't be
   evident why I'd made a particular choice.
 - Simplicity: for example, I used React Suspense to move the usual `isLoading`
-  and `isError` conditionals up to the nearest suspense boundary in order to
-  reduce cognitive complexity in the component tree and centralise error-handling.
-  I also tried to keep the "path down the render" as readable as I could (e.g.
-  by moving complex logic into custom hooks).
+  and `isError` conditionals up to the nearest suspense and error boundaries in
+  order to reduce cognitive complexity and centralise error-handling. I also
+  tried to keep the "path down the render" as readable as I could (e.g. by
+  moving complex logic into custom hooks).
 - A decent git history (e.g. descriptive names, and avoiding the sort of
   "jazz-hand" commits that seem to *touch all the things*).
 
@@ -93,7 +93,7 @@ project's repository, so I generated the [`Film` and `Character` types](https://
 manually using the [`json-schema-to-typescript` package](https://www.npmjs.com/package/json-schema-to-typescript).
 
 I chose not to include the script I used because adding any sort of codegen
-tooling felt like overkill :)
+tooling felt like overkill.
 
 #### Tanstack Query suspense support
 
